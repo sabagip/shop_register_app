@@ -8,16 +8,28 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sabagip on 2/01/16.
  */
 public class Get {
     static String stream = null;
+
+    public static List<Integer> datosUrl = new ArrayList<>();
+    public static List<String> datosParametros = new ArrayList<>();
+
     public static final String HOME = "http://3tstmexico.esy.es/shop_register/index.php/";
-    public static final String Login = "login/logueo/";
+    public static final String LOGIN = "login/logueo/";
+    public static final int LOGIN_CODE = 1;
 
     public Get() {
+    }
+
+    public static void limpiaListas(){
+        datosUrl.clear();
+        datosParametros.clear();
     }
 
     public String GetHTTPData(String urlString) {

@@ -13,10 +13,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import REST.Get;
+import REST.PeticionesGet;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,9 +40,16 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View v){
         String usuario = txtUsuario.getText().toString();
         String pass = txtPass.getText().toString();
-        String url = Get.HOME + Get.Login + "usuario/" + usuario + "/pass/" + pass;
-        Log.v("lectura", url);
-        new Login().execute(url );
+        //String url = Get.HOME + Get.LOGIN + "usuario/" + usuario + "/pass/" + pass;
+        //Log.v("lectura", url);
+        //new Login().execute(url );
+
+        Get.limpiaListas();
+
+        Get.datosUrl.add(Get.LOGIN_CODE);
+        Get.datosParametros.add(usuario);
+        Get.datosParametros.add(pass);
+        new PeticionesGet().execute();
     }
 
     private class Login extends AsyncTask<String, Void, String>{
