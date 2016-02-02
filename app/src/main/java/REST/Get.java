@@ -24,6 +24,8 @@ public class Get {
     public static final String LOGIN = "login/logueo/";
     public static final int LOGIN_CODE = 1;
 
+
+
     public Get() {
     }
 
@@ -32,10 +34,12 @@ public class Get {
         datosParametros.clear();
     }
 
+    HttpURLConnection urlConnection;
+
     public String GetHTTPData(String urlString) {
         try {
             URL url = new URL(urlString);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection = (HttpURLConnection) url.openConnection();
 
             // Check the connection status
             if (urlConnection.getResponseCode() == 200) {
@@ -52,8 +56,7 @@ public class Get {
                 stream = sb.toString();
                 // End reading...............
 
-                // Disconnect the HttpURLConnection
-                urlConnection.disconnect();
+
             } else {
                 // Do something
             }
@@ -62,7 +65,8 @@ public class Get {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-
+            // Disconnect the HttpURLConnection
+            urlConnection.disconnect();
         }
         // Return the data from specified url
         return stream;

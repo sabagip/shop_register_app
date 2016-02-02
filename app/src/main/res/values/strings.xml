@@ -5,4 +5,8 @@
     <string name="login_usuario">USUARIO</string>
     <string name="login_contrasena">CONTRASEÑA</string>
     <string name="login_iniciar_sesion">INGRESAR</string>
+
+    <!-- LISTA DE ERRORES DEL SISTEMA -->
+    <string name="error_login">Usuario o contraseña incorrectos</string>
+    <string name="error_servidor">Error al intentar conectarse al servidor</string>
 </resources>
